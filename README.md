@@ -18,11 +18,13 @@
 
 ---
 
-## 🎬 Demo Video
+## 🎬 Demo Video & Live Deployment
 
-Tonton demonstrasi penggunaan aplikasi **Lumi — Ruang Teduh & Jejak Harian** melalui tautan berikut:
+Tonton demonstrasi penggunaan atau coba langsung aplikasi **Lumi — Ruang Teduh & Jejak Harian** melalui tautan berikut:
 
-- **Link Demo Video:** [Tonton Video Demo Lumi (YouTube / Google Drive)](#) *(Ganti `#` dengan tautan video demo Anda)*
+- **🌐 Live Web App (GitHub Pages):** [https://zulfarida0107-crypto.github.io/Lumi-app/](https://zulfarida0107-crypto.github.io/Lumi-app/)
+- **📦 GitHub Release (`v1.0.0`):** [https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0](https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0)
+- **🎥 Link Demo Video:** [Tonton Video Demo Lumi (YouTube / Google Drive)](#) *(Ganti `#` dengan tautan video demo Anda)*
 
 ---
 
@@ -114,31 +116,41 @@ flutter run -d chrome
 
 ## 📦 Deployment / Release via GitHub
 
-Distribusi aplikasi **Lumi** dilakukan secara *native* melalui **GitHub Releases** sehingga pengguna atau penguji dapat langsung mengunduh dan memasang berkas instalasi (`.apk` untuk Android atau `.exe` bundle untuk Windows):
+Aplikasi **Lumi** telah di-*deploy* secara langsung melalui **GitHub Pages** (untuk akses Web instan) dan **GitHub Releases** (untuk distribusi rilis versi `v1.0.0`):
 
-### 1. Build File Release (APK / AppBundle)
+- **Live Deployment (GitHub Pages):** [https://zulfarida0107-crypto.github.io/Lumi-app/](https://zulfarida0107-crypto.github.io/Lumi-app/)
+- **Official Release (`v1.0.0`):** [https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0](https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0)
+- **Source Repository:** [https://github.com/zulfarida0107-crypto/Lumi-app](https://github.com/zulfarida0107-crypto/Lumi-app)
+
+### 1. Build File Release (APK / Web)
 ```bash
-# Buat file APK Release yang telah dioptimasi
+# Buat file APK Release untuk Android
 flutter build apk --release
 
-# Lokasi hasil build APK:
-# build/app/outputs/flutter-apk/app-release.apk
+# Atau buat bundel Web Release untuk GitHub Pages
+flutter build web --release --base-href "/Lumi-app/"
 ```
 
-### 2. Publikasi ke GitHub Releases
+### 2. Publikasi ke GitHub Releases & GitHub Pages
 1. Commit dan dorong (*push*) seluruh perubahan kode ke cabang utama GitHub:
    ```bash
    git add .
    git commit -m "chore(release): v1.0.0 Lumi Ruang Teduh & Jejak Harian"
    git push origin main
    ```
-2. Buat *tag* versi rilis baru dan dorong ke GitHub:
+2. Buat *tag* versi rilis baru dan publikasikan ke GitHub Releases:
    ```bash
    git tag -a v1.0.0 -m "Release v1.0.0 — Lumi: Ruang Teduh & Jejak Harian"
    git push origin v1.0.0
    ```
-3. Buka halaman repositori di GitHub $\rightarrow$ menu **Releases** $\rightarrow$ klik **Draft a new release**.
-4. Pilih tag `v1.0.0`, isi judul rilis **"Lumi v1.0.0 — Ruang Teduh & Jejak Harian"**, unggah file `build/app/outputs/flutter-apk/app-release.apk`, lalu klik **Publish release**.
+3. Untuk pembaruan **GitHub Pages**, dorong hasil `build/web` ke cabang `gh-pages`:
+   ```bash
+   cd build/web
+   git init -b gh-pages
+   git add .
+   git commit -m "deploy: Lumi Web release to GitHub Pages"
+   git push -f https://github.com/zulfarida0107-crypto/Lumi-app.git gh-pages
+   ```
 
 ---
 
