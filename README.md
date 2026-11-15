@@ -1,4 +1,4 @@
-# Lumi — Ruang Teduh & Jejak Harian 🌿🐻
+﻿# Lumi — Ruang Teduh & Jejak Harian 🌿🐻
 
 <p align="center">
   <img src="assets/public/lumi_app_icon.jpg" alt="Lumi Mascot Icon" width="140" />
@@ -156,26 +156,30 @@ flutter build web --release --base-href "/Lumi-app/"
 
 ## 📸 Documentation & Demo
 
-Berikut adalah dokumentasi visual dan penjelasan setiap fitur utama pada aplikasi **Lumi**:
+Berikut dokumentasi antarmuka (*UI Screenshots*) dan penjelasan fungsional setiap modul pada aplikasi **Lumi**:
 
-| Feature | Documentation Preview | Description |
-| **1. Animated Mascot Splash & Auth Sanctuary** | <img src="assets/UI/01_splash.png" width="150" /> <img src="assets/UI/02_login.png" width="150" /> <img src="assets/UI/04_register.png" width="150" /> <img src="assets/UI/06_pin.png" width="150" /> | Layar pembuka beranimasi maskot beruang **Lumi** dengan tunas daun mint yang tumbuh lembut, dilanjutkan dengan gerbang autentikasi wajib akun terdaftar (**Daftar Akun Baru**, **Login Email**, **Sidik Jari / Biometrik**, **Kunci PIN 4-Digit**, dan **Sambutan Hangat**). |
-| **2. Tab Hari Ini (Jejak Harian & 1-Tap Routine)** | <img src="assets/UI/07_hari_ini.png" width="150" /> <img src="assets/UI/12_modal_mood.png" width="150" /> <img src="assets/UI/13_modal_tidur.png" width="150" /> <img src="assets/UI/14_modal_makan.png" width="150" /> | Dashboard harian *real-time* WIB dengan kalender mingguan geser, 4 kartu status (**Obat**, **Makan**, **Tidur**, **Mood**), tombol darurat **"Lagi Sangat Lelah"** (*1-Tap Low-Energy Mode*), serta pencatatan jadwal Pagi/Siang/Malam. |
-| **3. Tab Catatan & Mode Siap Konsultasi** | <img src="assets/UI/08_catatan.png" width="150" /> <img src="assets/UI/16_modal_catatan.png" width="150" /> | Linimasa jurnal perasaan dengan pencarian instan, filter kategori, penanda **⭐ Pin Terapi**, fitur penyamaran privasi **Mata Teduh** (*blur*), serta dukungan lampiran foto dan memo suara. |
-| **4. Tab Matriks Bulanan & Year in Pixels** | <img src="assets/UI/09_matriks_bulanan.png" width="150" /> <img src="assets/UI/10_matriks_tahunan.png" width="150" /> | Kalender bulanan interaktif yang menampilkan indikator mood harian (atau `-` bila belum ada data), *bottom sheet* detail harian, analisis pola otomatis, serta visualisasi tahunan **Year in Pixels** (365 hari). |
-| **5. Ringkasan Konsultasi Dokter / Psikiater** | <img src="assets/UI/17_ringkasan_konsultasi.png" width="150" /> | Laporan klinis terstruktur untuk sesi konsultasi psikiater/psikolog yang merangkum **Matriks Klinis Utama** (Stabilitas Afek, Tidur Sirkadian, Kepatuhan Obat, Keteraturan Makan), **Catatan Terapi**, dan **Agenda Tanya Pasien ke Dokter** (lengkap dengan fitur Tambah, Edit, & Hapus berkonfirmasi). |
-| **6. Tab Chart (Dynamic Bar Charts)** | <img src="assets/UI/11_chart.png" width="150" /> | Visualisasi grafik batang (*Bar Chart*) 100% dinamis meliputi **Bar Chart Durasi Tidur & Mood Harian** per minggu, **Grouped Bar Chart Obat vs Makan** (Pagi/Siang/Malam), **Frekuensi Level Mood**, dan **Distribusi Kualitas Tidur**. |
-| **7. Pengaturan Privasi & Sinkronisasi** | <img src="assets/UI/18_pengaturan.png" width="150" /> | Pengaturan profil pengguna, penguncian biometrik/PIN, pengingat lembut bebas tekanan, tautan Google Spreadsheet pribadi, ekspor CSV/PDF, serta tombol **Kunci Ruang Teduh Sementara**. |
+| No | Fitur & Modul | Dokumentasi Preview | Deskripsi Fungsional |
+| :---: | :--- | :---: | :--- |
+| **1** | **Animated Mascot Splash & Gerbang Autentikasi** | <table><tr><td align="center"><img src="assets/UI/01_splash.png" width="130" /><br><sub><b>Splash Screen</b></sub></td><td align="center"><img src="assets/UI/02_login.png" width="130" /><br><sub><b>Login Email</b></sub></td><td align="center"><img src="assets/UI/04_register.png" width="130" /><br><sub><b>Daftar Akun</b></sub></td><td align="center"><img src="assets/UI/06_pin.png" width="130" /><br><sub><b>Kunci PIN</b></sub></td></tr></table> | Layar pembuka animasi maskot beruang **Lumi** dengan tunas daun mint yang tumbuh lembut. Dilengkapi gerbang keamanan akun wajib (**Pendaftaran Akun Baru**, **Login Email**, **Kunci PIN 4-Digit**, **Autentikasi Biometrik/Sidik Jari**, dan **Layar Sambutan Personal**). |
+| **2** | **Tab Hari Ini (Jejak Harian & 1-Tap Rutinitas)** | <table><tr><td align="center"><img src="assets/UI/07_hari_ini.png" width="130" /><br><sub><b>Dashboard Utama</b></sub></td><td align="center"><img src="assets/UI/12_modal_mood.png" width="130" /><br><sub><b>Modal Mood & Energi</b></sub></td><td align="center"><img src="assets/UI/13_modal_tidur.png" width="130" /><br><sub><b>Modal Catat Tidur</b></sub></td><td align="center"><img src="assets/UI/14_modal_makan.png" width="130" /><br><sub><b>Modal Makan</b></sub></td></tr></table> | Dashboard pemantauan harian *real-time* WIB dengan kalender mingguan geser interaktif, 4 kartu ringkasan (**Obat**, **Makan**, **Tidur**, **Mood**), tombol darurat **"Lagi Sangat Lelah"** (*1-Tap Low-Energy Mode*), serta modal cepat jadwal Pagi/Siang/Malam. |
+| **3** | **Tab Catatan & Mode Siap Konsultasi** | <table><tr><td align="center"><img src="assets/UI/08_catatan.png" width="130" /><br><sub><b>Linimasa Catatan</b></sub></td><td align="center"><img src="assets/UI/16_modal_catatan.png" width="130" /><br><sub><b>Input Jurnal Teduh</b></sub></td></tr></table> | Linimasa jurnal perasaan dengan pencarian teks instan, filter kategori, penanda **⭐ Pin Terapi**, fitur privasi **Mata Teduh** (*blur kartu*), serta dukungan lampiran foto kenangan dan memo suara. |
+| **4** | **Tab Matriks Bulanan & Year in Pixels** | <table><tr><td align="center"><img src="assets/UI/09_matriks_bulanan.png" width="130" /><br><sub><b>Matriks Bulanan</b></sub></td><td align="center"><img src="assets/UI/10_matriks_tahunan.png" width="130" /><br><sub><b>Year in Pixels</b></sub></td></tr></table> | Kalender bulanan dengan indikator visual spektrum emosi harian (Level 1–5), analisis pola emosi otomatis, *bottom sheet* detail harian saat tanggal diketuk, serta rekapitulasi 365 hari dalam tampilan **Year in Pixels**. |
+| **5** | **Ringkasan Konsultasi Dokter / Psikiater** | <table><tr><td align="center"><img src="assets/UI/17_ringkasan_konsultasi.png" width="140" /><br><sub><b>Laporan Klinis</b></sub></td></tr></table> | Laporan klinis terstruktur yang merangkum **Matriks Klinis Utama** (Stabilitas Afek, Kualitas Tidur Sirkadian, Kepatuhan Obat, Keteraturan Makan), **Catatan Terapi**, serta **Agenda Tanya Pasien ke Dokter** lengkap dengan CRUD (Tambah, Edit, Hapus berkonfirmasi). |
+| **6** | **Tab Chart (Visualisasi Grafik Interaktif)** | <table><tr><td align="center"><img src="assets/UI/11_chart.png" width="140" /><br><sub><b>Grafik Batang Dinamis</b></sub></td></tr></table> | Visualisasi grafik batang (*Bar Chart*) 100% dinamis yang memetakan **Durasi Tidur & Mood Harian**, **Grouped Bar Chart Obat vs Makan** (Pagi, Siang, Malam), **Frekuensi Level Mood**, dan **Distribusi Kualitas Tidur**. |
+| **7** | **Pengaturan Privasi & Keamanan Ruang Teduh** | <table><tr><td align="center"><img src="assets/UI/18_pengaturan.png" width="140" /><br><sub><b>Menu Pengaturan</b></sub></td></tr></table> | Personalisasi profil pengguna, saklar keamanan biometrik & PIN, manajemen pengingat lembut, integrasi Google Spreadsheet pribadi, ekspor data CSV/PDF, serta tombol pintas **Kunci Ruang Teduh Sementara**. |
 
-### 🖼️ Galeri Lengkap UI
+### 🖼️ Galeri Lengkap Seluruh Antarmuka (18 Layar)
 
-| | | | |
+| Gerbang Autentikasi | Gerbang Autentikasi | Dashboard Harian | Tab Catatan |
 | :---: | :---: | :---: | :---: |
-| <img src="assets/UI/01_splash.png" width="180" /><br>Splash | <img src="assets/UI/02_login.png" width="180" /><br>Login | <img src="assets/UI/03_welcome.png" width="180" /><br>Welcome | <img src="assets/UI/04_register.png" width="180" /><br>Daftar Akun |
-| <img src="assets/UI/05_biometric.png" width="180" /><br>Biometrik | <img src="assets/UI/06_pin.png" width="180" /><br>Kunci PIN | <img src="assets/UI/07_hari_ini.png" width="180" /><br>Hari Ini | <img src="assets/UI/08_catatan.png" width="180" /><br>Catatan |
-| <img src="assets/UI/09_matriks_bulanan.png" width="180" /><br>Matriks Bulanan | <img src="assets/UI/10_matriks_tahunan.png" width="180" /><br>Year in Pixels | <img src="assets/UI/11_chart.png" width="180" /><br>Chart | <img src="assets/UI/12_modal_mood.png" width="180" /><br>Catat Mood |
-| <img src="assets/UI/13_modal_tidur.png" width="180" /><br>Catat Tidur | <img src="assets/UI/14_modal_makan.png" width="180" /><br>Catat Makan | <img src="assets/UI/15_modal_obat.png" width="180" /><br>Catat Obat | <img src="assets/UI/16_modal_catatan.png" width="180" /><br>Tulis Catatan |
-| <img src="assets/UI/17_ringkasan_konsultasi.png" width="180" /><br>Ringkasan Dokter | <img src="assets/UI/18_pengaturan.png" width="180" /><br>Pengaturan | | |
+| <img src="assets/UI/01_splash.png" width="180" /><br><b>01. Splash Screen</b> | <img src="assets/UI/02_login.png" width="180" /><br><b>02. Login Email</b> | <img src="assets/UI/07_hari_ini.png" width="180" /><br><b>07. Dashboard Hari Ini</b> | <img src="assets/UI/08_catatan.png" width="180" /><br><b>08. Tab Catatan</b> |
+| <img src="assets/UI/03_welcome.png" width="180" /><br><b>03. Welcome Sanctuary</b> | <img src="assets/UI/04_register.png" width="180" /><br><b>04. Pendaftaran Akun</b> | <img src="assets/UI/12_modal_mood.png" width="180" /><br><b>12. Modal Mood & Energi</b> | <img src="assets/UI/16_modal_catatan.png" width="180" /><br><b>16. Tulis Jurnal Teduh</b> |
+| <img src="assets/UI/05_biometric.png" width="180" /><br><b>05. Kunci Sidik Jari</b> | <img src="assets/UI/06_pin.png" width="180" /><br><b>06. Kunci PIN</b> | <img src="assets/UI/13_modal_tidur.png" width="180" /><br><b>13. Modal Catat Tidur</b> | <img src="assets/UI/14_modal_makan.png" width="180" /><br><b>14. Modal Jadwal Makan</b> |
+
+| Analisis & Matriks | Laporan Medis & Grafik | Pengaturan & Profil | Modal Rutinitas |
+| :---: | :---: | :---: | :---: |
+| <img src="assets/UI/09_matriks_bulanan.png" width="180" /><br><b>09. Matriks Bulanan</b> | <img src="assets/UI/17_ringkasan_konsultasi.png" width="180" /><br><b>17. Ringkasan Dokter</b> | <img src="assets/UI/18_pengaturan.png" width="180" /><br><b>18. Pengaturan Akun</b> | <img src="assets/UI/15_modal_obat.png" width="180" /><br><b>15. Modal Jadwal Obat</b> |
+| <img src="assets/UI/10_matriks_tahunan.png" width="180" /><br><b>10. Year in Pixels</b> | <img src="assets/UI/11_chart.png" width="180" /><br><b>11. Chart & Analitik</b> | | |
 
 ---
 
