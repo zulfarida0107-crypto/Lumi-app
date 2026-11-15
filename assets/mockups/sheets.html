@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi — Tab Sheet (Spreadsheet, Ekspor &amp; Rekap)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fcf8fa",
+            "outline": "#73777e",
+            "tertiary-fixed-dim": "#eeb8c6",
+            "secondary-container": "#dbdeff",
+            "primary-fixed": "#d2e4ff",
+            "surface-container-low": "#f6f2f4",
+            "primary": "#1d3958",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c3c6ce",
+            "on-secondary-fixed": "#161a32",
+            "error-container": "#ffdad6",
+            "surface": "#fcf8fa",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#43474d",
+            "surface-dim": "#dcd9db",
+            "inverse-surface": "#313032",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffd9e1",
+            "surface-variant": "#e5e1e3",
+            "background": "#fcf8fa",
+            "on-background": "#1c1b1d",
+            "tertiary-container": "#6b434e",
+            "on-primary-container": "#a7c2e8",
+            "surface-tint": "#456081",
+            "secondary-fixed-dim": "#c1c4e5",
+            "inverse-on-surface": "#f4f0f2",
+            "surface-container-high": "#ebe7e9",
+            "primary-fixed-dim": "#adc9ee",
+            "on-surface": "#1c1b1d",
+            "tertiary": "#512d38",
+            "secondary": "#595d78",
+            "on-secondary-fixed-variant": "#414560",
+            "on-primary-fixed-variant": "#2d4868",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#dee0ff",
+            "on-secondary-container": "#5d617d",
+            "surface-container-highest": "#e5e1e3",
+            "on-tertiary-fixed-variant": "#623b47",
+            "on-tertiary-fixed": "#30111b",
+            "inverse-primary": "#adc9ee",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#e8b2bf",
+            "primary-container": "#355070",
+            "surface-container": "#f1edef",
+            "on-primary-fixed": "#001c37"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "gutter-lg": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "0.75rem",
+            "gutter": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["17px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom subtle scrollbar for sheet table */
+    .sheet-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .sheet-scrollbar::-webkit-scrollbar-track {
+      background: #f1edef;
+      border-radius: 9999px;
+    }
+    .sheet-scrollbar::-webkit-scrollbar-thumb {
+      background: #d8a4b1;
+      border-radius: 9999px;
+    }
+    .tap-target {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- Mobile Max Clamped Container -->
+<div class="w-full max-w-[640px] mx-auto min-h-screen flex flex-col pb-28 relative">
+<!-- TOP APP BAR (Shared Component Anchor) -->
+<header class="sticky top-0 z-40 bg-background/90 backdrop-blur-md border-b border-surface-container-high/40">
+<div class="flex justify-between items-center w-full px-margin h-14 max-w-[640px] mx-auto">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-semibold tracking-tight">Lumi</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Bantuan dan Info Keamanan" class="tap-target w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+</button>
+<button aria-label="Status Kunci Privasi" class="tap-target w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+</button>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT STREAM -->
+<main class="flex-1 px-margin pt-4 space-y-4">
+<!-- Screen Header Intro -->
+<section class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">table_chart</span>
+<span>Tab 4 • Arsip &amp; Spreadsheet Terbuka</span>
+</div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary font-bold">Lumi — Data &amp; Lembar Jejak</h1>
+<p class="text-body-sm font-body-sm text-secondary">Kelola data mentah, ekspor laporan terapi, dan sinkronisasi spreadsheet pribadi dengan tenang.</p>
+</section>
+<!-- 2. BANNER INTEGRASI GOOGLE SHEETS / CLOUD SYNC -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_16px_rgba(53,80,112,0.04)] border border-surface-container-high/60 space-y-3">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#34A853] inline-block animate-pulse"></span>
+<h2 class="text-headline-sm font-headline-sm text-primary font-semibold">Google Sheets Terhubung</h2>
+</div>
+<p class="text-body-sm font-body-sm text-secondary">
+                Sinkronisasi otomatis setiap malam ke sheet pribadi Anda <strong class="text-primary font-medium">"Lumi_Jejak_2026"</strong>. Data sepenuhnya milik Anda di Google Drive.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<a class="tap-target inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-primary-container text-on-primary text-label-md font-label-md font-semibold hover:opacity-95 transition active:scale-95 shadow-sm" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+<span>Buka di Google Sheets</span>
+</a>
+<button class="tap-target inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-container text-secondary text-label-md font-label-md hover:bg-surface-container-high transition active:scale-95" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#34A853]">sync</span>
+<span>Sinkron Sekarang <span class="opacity-75">(15m lalu)</span></span>
+</button>
+</div>
+</section>
+<!-- 3. PILIHAN TAMPILAN LEMBAR KERJA (SHEET SELECTOR & FILTER) -->
+<section class="space-y-3">
+<!-- Segmented Tab Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-label-md font-label-md">
+<button class="whitespace-nowrap px-3.5 py-2 rounded-full bg-primary-container text-on-primary font-semibold flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">assignment</span>
+<span>Lembar Rutinitas (Obat/Makan)</span>
+</button>
+<button class="whitespace-nowrap px-3.5 py-2 rounded-full bg-surface-container-lowest text-secondary border border-surface-container-high/70 hover:bg-surface-container-low transition flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">bedtime</span>
+<span>Lembar Kualitas Tidur</span>
+</button>
+<button class="whitespace-nowrap px-3.5 py-2 rounded-full bg-surface-container-lowest text-secondary border border-surface-container-high/70 hover:bg-surface-container-low transition flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">mood</span>
+<span>Lembar Mood &amp; Catatan</span>
+</button>
+</div>
+<!-- Date Range Filter Dropdown Header -->
+<div class="flex items-center justify-between bg-surface-container-lowest px-3.5 py-2 rounded-xl border border-surface-container-high/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">calendar_month</span>
+<span class="text-label-md font-label-md text-primary font-semibold">Rentang: November 2026</span>
+</div>
+<button class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary bg-tertiary-fixed/60 px-2.5 py-1 rounded-full hover:bg-tertiary-fixed transition" type="button">
+<span>Ubah Bulan</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+</section>
+<!-- 4. TAMPILAN SPREADSHEET RINGKAS MOBILE (TABEL INTERAKTIF DENGAN FROZEN DATE) -->
+<section class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_16px_rgba(53,80,112,0.04)] border border-surface-container-high/60 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<h3 class="text-headline-sm font-headline-sm text-primary font-semibold">Pratinjau Data Masukan</h3>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">4 Baris Terakhir</span>
+</div>
+<!-- Gesture Hint -->
+<div class="flex items-center gap-1 text-[11px] text-secondary/80 bg-surface-container-low/70 px-2.5 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[14px]">swipe_right</span>
+<span>Geser ke kanan untuk melihat rincian kolom dosis obat dan catatan lengkap.</span>
+</div>
+<!-- Table Container with Frozen Left Column -->
+<div class="relative overflow-x-auto sheet-scrollbar rounded-xl border border-surface-container-high/70 bg-surface-container-lowest">
+<table class="w-full text-left border-collapse min-w-[540px]">
+<thead>
+<tr class="bg-surface-container-high/40 text-primary text-label-sm font-label-sm border-b border-surface-container-high">
+<th class="sticky left-0 z-20 bg-[#FAF6F8] px-3 py-2.5 font-bold shadow-[2px_0_6px_rgba(53,80,112,0.05)] w-20" scope="col">Tgl</th>
+<th class="px-3 py-2.5 whitespace-nowrap" scope="col">Tidur (Jam)</th>
+<th class="px-3 py-2.5 whitespace-nowrap" scope="col">Kualitas</th>
+<th class="px-3 py-2.5 whitespace-nowrap" scope="col">Obat P/S/M</th>
+<th class="px-3 py-2.5 whitespace-nowrap" scope="col">Makan</th>
+<th class="px-3 py-2.5 whitespace-nowrap" scope="col">Catatan / Mood</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-body-sm font-body-sm text-on-surface">
+<!-- Row 1: 15 Nov -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="sticky left-0 z-10 bg-surface-container-lowest px-3 py-2.5 font-semibold text-primary shadow-[2px_0_6px_rgba(53,80,112,0.03)] border-r border-surface-container-high/40">
+                  15 Nov
+                </td>
+<td class="px-3 py-2.5 whitespace-nowrap font-medium text-secondary">6.5j</td>
+<td class="px-3 py-2.5 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 text-label-sm border border-amber-200">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    Sering Bangun
+                  </span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="opacity-30">⬜</span> / <span class="opacity-30">⬜</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="opacity-30">⬜</span> / <span class="opacity-30">⬜</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap text-secondary">
+<span class="inline-flex items-center gap-1">☁️ Lelah (Kebangun jam 3)</span>
+</td>
+</tr>
+<!-- Row 2: 14 Nov -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="sticky left-0 z-10 bg-surface-container-lowest px-3 py-2.5 font-semibold text-primary shadow-[2px_0_6px_rgba(53,80,112,0.03)] border-r border-surface-container-high/40">
+                  14 Nov
+                </td>
+<td class="px-3 py-2.5 whitespace-nowrap font-medium text-secondary">7.0j</td>
+<td class="px-3 py-2.5 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-label-sm border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Pulas
+                  </span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap text-secondary">
+<span class="inline-flex items-center gap-1">🌤️ Tenang (Jalan pagi)</span>
+</td>
+</tr>
+<!-- Row 3: 13 Nov -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="sticky left-0 z-10 bg-surface-container-lowest px-3 py-2.5 font-semibold text-primary shadow-[2px_0_6px_rgba(53,80,112,0.03)] border-r border-surface-container-high/40">
+                  13 Nov
+                </td>
+<td class="px-3 py-2.5 whitespace-nowrap font-medium text-secondary">4.5j</td>
+<td class="px-3 py-2.5 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-orange-50 text-orange-800 text-label-sm border border-orange-200">
+<span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                    Insomnia
+                  </span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-rose-500 font-bold">❌</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-rose-500 font-bold">❌</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap text-secondary">
+<span class="inline-flex items-center gap-1">🌧️ Berat (Cemas berlebih)</span>
+</td>
+</tr>
+<!-- Row 4: 12 Nov -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="sticky left-0 z-10 bg-surface-container-lowest px-3 py-2.5 font-semibold text-primary shadow-[2px_0_6px_rgba(53,80,112,0.03)] border-r border-surface-container-high/40">
+                  12 Nov
+                </td>
+<td class="px-3 py-2.5 whitespace-nowrap font-medium text-secondary">8.0j</td>
+<td class="px-3 py-2.5 whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-label-sm border border-emerald-200">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Nyenyak
+                  </span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap font-mono text-label-sm">
+<span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span> / <span class="text-emerald-600 font-bold">✅</span>
+</td>
+<td class="px-3 py-2.5 whitespace-nowrap text-secondary">
+<span class="inline-flex items-center gap-1">☀️ Stabil &amp; Nyaman</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pt-1 flex items-center justify-between text-label-sm font-label-sm text-secondary">
+<span>Menampilkan 4 dari 30 entri bulan ini</span>
+<button class="text-primary font-semibold hover:underline" type="button">Lihat Semua Baris</button>
+</div>
+</section>
+<!-- 5. PUSAT EKSPOR DOKUMEN & KONSULTASI MEDIS (EXPORT CENTER) -->
+<section class="space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">ios_share</span>
+<h2 class="text-headline-sm font-headline-sm text-primary font-semibold">Pusat Ekspor &amp; Konsultasi Medis</h2>
+</div>
+<!-- Kartu PDF Dokter / Psikiater -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_16px_rgba(53,80,112,0.04)] border border-surface-container-high/60 space-y-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary-container shrink-0">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<h3 class="text-body-lg font-body-lg text-primary font-bold">Ringkasan untuk Dokter / Psikiater (PDF)</h3>
+</div>
+<p class="text-body-sm font-body-sm text-secondary">
+                Format ramah cetak medis yang merangkum grafik kepatuhan obat 30 hari, tren tidur, fluktuasi suasana hati, dan catatan bertanda bintang <span class="text-amber-500 font-semibold">⭐</span> untuk bahan sesi konsultasi.
+              </p>
+</div>
+</div>
+<button class="tap-target w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-primary-container text-on-primary font-label-lg font-semibold hover:opacity-95 transition-all active:scale-[0.99] shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Unduh PDF Konsultasi</span>
+</button>
+</article>
+<!-- Kartu Ekspor CSV / XLSX -->
+<article class="bg-surface-container-lowest rounded-2xl p-4 shadow-[0_4px_16px_rgba(53,80,112,0.04)] border border-surface-container-high/60 space-y-3">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-[24px]">dataset</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-body-lg font-body-lg text-primary font-bold">Ekspor File CSV / Excel (.xlsx)</h3>
+<p class="text-body-sm font-body-sm text-secondary">
+                Data mentah lengkap tanpa agregasi. Ideal untuk analisis mandiri, visualisasi spreadsheet mandiri, atau cadangan arsip offline pribadi.
+              </p>
+</div>
+</div>
+<button class="tap-target w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-surface-container text-primary font-label-lg font-semibold hover:bg-surface-container-high transition-all active:scale-[0.99] border border-surface-container-high" type="button">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+<span>Ekspor File .CSV / .XLSX</span>
+</button>
+</article>
+</section>
+<!-- 6. PENGATURAN KEAMANAN & PRIVASI DATA -->
+<section class="bg-surface-container-low rounded-2xl p-4 border border-surface-container-high/80 space-y-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+<h3 class="text-headline-sm font-headline-sm text-primary font-semibold">Keamanan &amp; Kedaulatan Privasi</h3>
+</div>
+<!-- Toggle Row -->
+<div class="flex items-center justify-between py-1">
+<div class="space-y-0.5 pr-2">
+<label class="text-body-md font-body-md text-primary font-semibold block cursor-pointer" for="encrypt-toggle">
+              Enkripsi Data Spreadsheet Cadangan
+            </label>
+<p class="text-label-sm font-label-sm text-secondary">
+              Proteksi berkas dengan sandi AES-256 lokal sebelum diekspor ke cloud.
+            </p>
+</div>
+<!-- Styled Switch Toggle (Active by Default) -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="encrypt-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div class="border-t border-surface-container-high/60 pt-3 flex items-center justify-between">
+<div class="flex items-center gap-2 text-secondary text-body-sm">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+<span>Simpanan Lokal di Perangkat</span>
+</div>
+<button class="text-label-md font-label-md font-semibold text-rose-700 hover:text-rose-800 hover:underline active:scale-95 transition" type="button">
+            Bersihkan Cache Lokal &amp; Kunci Sekarang
+          </button>
+</div>
+</section>
+<!-- Micro Note / Empathy Touch -->
+<div class="text-center py-2">
+<p class="text-label-sm font-label-sm text-secondary/70">
+          🌱 Ruang Teduh Lumi — Data Anda tidak pernah dijual atau digunakan untuk pelatihan model AI.
+        </p>
+</div>
+</main>
+<!-- 7. BOTTOM NAVIGATION BAR (Shared Components JSON Anchor) -->
+<!-- Tab 4: 'Sheet' is ACTIVE -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm h-[68px] max-w-[640px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface rounded-t-lg shadow-[0_-4px_24px_rgba(53,80,112,0.06)] dark:shadow-none border-t border-surface-container-high/60 dark:border-outline-variant/20">
+<!-- Tab 1: Hari Ini -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95 transition-transform" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hari Ini</span>
+</a>
+<!-- Tab 2: Catatan -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95 transition-transform" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[22px]">edit_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Catatan</span>
+</a>
+<!-- Tab 3: Matriks -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95 transition-transform" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[22px]">grid_view</span>
+<span class="text-label-sm font-label-sm mt-0.5">Matriks</span>
+</a>
+<!-- Tab 4: Sheet (ACTIVE STATE MATCHING JSON SPEC) -->
+<a class="flex flex-col items-center justify-center bg-tertiary-fixed dark:bg-tertiary-container text-on-tertiary-fixed dark:text-on-tertiary-container rounded-full px-4 py-1.5 transition-all duration-200 active:scale-95" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">table_chart</span>
+<span class="text-label-sm font-label-sm font-semibold mt-0.5">Sheet</span>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html><html class="light" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<title>Lumi — Ruang Teduh &amp; Jejak Harian</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#73777e",
+            "inverse-surface": "#313032",
+            "on-surface": "#1c1b1d",
+            "secondary": "#595d78",
+            "on-secondary-fixed": "#161a32",
+            "outline-variant": "#c3c6ce",
+            "surface-variant": "#e5e1e3",
+            "surface-container-highest": "#e5e1e3",
+            "on-primary-container": "#a7c2e8",
+            "tertiary": "#512d38",
+            "secondary-fixed": "#dee0ff",
+            "secondary-container": "#dbdeff",
+            "on-tertiary-container": "#e8b2bf",
+            "tertiary-fixed-dim": "#eeb8c6",
+            "on-surface-variant": "#43474d",
+            "error": "#ba1a1a",
+            "inverse-primary": "#adc9ee",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffd9e1",
+            "background": "#fcf8fa",
+            "surface-tint": "#456081",
+            "on-primary-fixed": "#001c37",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc9ee",
+            "on-tertiary-fixed-variant": "#623b47",
+            "surface-container-low": "#f6f2f4",
+            "surface-container": "#f1edef",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fcf8fa",
+            "on-secondary-container": "#5d617d",
+            "on-primary-fixed-variant": "#2d4868",
+            "surface": "#fcf8fa",
+            "primary-fixed": "#d2e4ff",
+            "secondary-fixed-dim": "#c1c4e5",
+            "primary": "#1d3958",
+            "inverse-on-surface": "#f4f0f2",
+            "on-secondary-fixed-variant": "#414560",
+            "surface-container-high": "#ebe7e9",
+            "surface-dim": "#dcd9db",
+            "tertiary-container": "#6b434e",
+            "on-background": "#1c1b1d",
+            "on-tertiary-fixed": "#30111b",
+            "on-error": "#ffffff",
+            "primary-container": "#355070",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            /* Palette specific additions */
+            "lumi-mint": "#B5EAD7",
+            "lumi-pink": "#FFC0CB",
+            "lumi-mauve": "#D8A4B1",
+            "lumi-indigo": "#4A4E69",
+            "lumi-base": "#FAF6F8"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "1.5rem",
+            "margin-lg": "2rem",
+            "gutter": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["17px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth veil blur */
+    .privacy-veiled {
+      filter: blur(6px);
+      transition: filter 0.25s ease;
+      user-select: none;
+    }
+    /* Touch active state */
+    .touch-gentle {
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+    .touch-gentle:active {
+      transform: scale(0.97);
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-tertiary-fixed flex justify-center min-h-screen">
+<!-- Main Mobile Canvas Container (Max 640px, default viewport 390px) -->
+<div class="w-full max-w-[640px] min-h-screen flex flex-col bg-background relative pb-36">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="bg-background dark:bg-background border-b border-surface-container-high/40 dark:border-outline-variant/20 sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-margin h-14 max-w-[640px] mx-auto">
+<!-- Leading Icon & Brand Group -->
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="spa">spa</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm text-primary tracking-tight">Lumi</span>
+<span class="text-label-sm font-label-sm text-secondary -mt-1">Ruang Teduh &amp; Jejak Harian</span>
+</div>
+</div>
+<!-- Trailing Actions: Privacy Veil Toggle, Biometric, Settings -->
+<div class="flex items-center space-x-1.5">
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" id="veilToggleBtn" title="Mata Teduh (Sembunyikan Privasi)">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" title="Kunci Biometrik">
+<span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low transition-colors duration-150 active:scale-95" title="Pengaturan">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="flex-1 px-margin pt-space-md space-y-space-md">
+<!-- Horizontal Weekly Date Strip Selector -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-space-sm shadow-[0_4px_16px_rgba(53,80,112,0.04)] border border-lumi-mauve/25">
+<div class="flex items-center justify-between px-space-xs pb-space-xs">
+<button class="w-7 h-7 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-lg font-label-lg text-primary-container">Minggu, 15 Nov 2026</span>
+</div>
+<button class="w-7 h-7 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Day Pills Carousel -->
+<div class="flex justify-between items-center gap-1.5 pt-1 overflow-x-auto no-scrollbar">
+<!-- Active Highlight Day: 15 Nov -->
+<button class="flex-1 flex flex-col items-center py-2 px-1 rounded-DEFAULT bg-primary-container text-white shadow-sm touch-gentle">
+<span class="text-label-sm font-label-sm opacity-80">Min</span>
+<span class="text-headline-sm font-headline-sm leading-none mt-0.5">15</span>
+<span class="w-1.5 h-1.5 rounded-full bg-lumi-mint mt-1"></span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 px-1 rounded-DEFAULT bg-surface-container-low text-secondary hover:bg-surface-container touch-gentle">
+<span class="text-label-sm font-label-sm text-secondary">Sen</span>
+<span class="text-headline-sm font-headline-sm text-on-surface leading-none mt-0.5">16</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-1"></span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 px-1 rounded-DEFAULT bg-surface-container-low text-secondary hover:bg-surface-container touch-gentle">
+<span class="text-label-sm font-label-sm text-secondary">Sel</span>
+<span class="text-headline-sm font-headline-sm text-on-surface leading-none mt-0.5">17</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-1"></span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 px-1 rounded-DEFAULT bg-surface-container-low text-secondary hover:bg-surface-container touch-gentle">
+<span class="text-label-sm font-label-sm text-secondary">Rab</span>
+<span class="text-headline-sm font-headline-sm text-on-surface leading-none mt-0.5">18</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-1"></span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 px-1 rounded-DEFAULT bg-surface-container-low text-secondary hover:bg-surface-container touch-gentle">
+<span class="text-label-sm font-label-sm text-secondary">Kam</span>
+<span class="text-headline-sm font-headline-sm text-on-surface leading-none mt-0.5">19</span>
+<span class="w-1.5 h-1.5 rounded-full bg-transparent mt-1"></span>
+</button>
+</div>
+</section>
+<!-- Section: JEJAK HARI INI (Micro-Chunked Status Bar) -->
+<section class="space-y-space-xs">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Jejak Hari Ini</h2>
+<span class="text-label-sm font-label-sm text-secondary/70">Ringkasan Otomatis</span>
+</div>
+<!-- 4 Rounded Pill Chips Grid -->
+<div class="grid grid-cols-2 gap-2">
+<!-- 1. Obat (Mint Green highlight) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-3 border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.03)] flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-full bg-[#B5EAD7] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[19px] text-primary-container fill-icon" data-icon="medication">medication</span>
+</div>
+<div class="min-w-0">
+<div class="text-label-md font-label-md text-primary font-semibold truncate">1/2 Obat</div>
+<div class="text-label-sm font-label-sm text-secondary">Pagi diminum</div>
+</div>
+</div>
+<!-- 2. Makan (Warm Pink highlight) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-3 border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.03)] flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-full bg-[#FFC0CB]/70 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[19px] text-tertiary fill-icon" data-icon="restaurant">restaurant</span>
+</div>
+<div class="min-w-0">
+<div class="text-label-md font-label-md text-primary font-semibold truncate">1/3 Makan</div>
+<div class="text-label-sm font-label-sm text-secondary">Siang &amp; malam...</div>
+</div>
+</div>
+<!-- 3. Tidur (Dusty Indigo badge) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-3 border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.03)] flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-full bg-[#4A4E69]/15 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[19px] text-lumi-indigo fill-icon" data-icon="bedtime">bedtime</span>
+</div>
+<div class="min-w-0">
+<div class="text-label-md font-label-md text-primary font-semibold truncate">6.5j Tidur</div>
+<div class="text-label-sm font-label-sm text-secondary">Terbangun cemas</div>
+</div>
+</div>
+<!-- 4. Mood: Lelah (Skala 2/5) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-3 border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.03)] flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[19px] text-on-tertiary-fixed fill-icon" data-icon="cloud">cloud</span>
+</div>
+<div class="min-w-0">
+<div class="text-label-md font-label-md text-primary font-semibold truncate">Mood: Lelah</div>
+<div class="text-label-sm font-label-sm text-secondary">Skala 2/5 • Lemas</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Timeline Jejak Waktu (Vertical Timeline) -->
+<section class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Jadwal &amp; Riwayat Hari Ini</h2>
+<span class="text-label-sm font-label-sm text-primary font-medium flex items-center gap-0.5">
+<span class="w-2 h-2 rounded-full bg-[#B5EAD7] animate-pulse"></span>
+            Mode Santai Aktif
+          </span>
+</div>
+<!-- Vertical Timeline Stack -->
+<div class="relative pl-6 space-y-4 before:content-[''] before:absolute before:left-2.5 before:top-3 before:bottom-3 before:w-[1.5px] before:bg-outline-variant/50">
+<!-- Item 1: 07:00 BANGUN TIDUR -->
+<div class="relative">
+<!-- Timeline Node -->
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-primary-container flex items-center justify-center shadow-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+</div>
+<!-- Card -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-margin border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.04)] bg-gradient-to-br from-white via-white to-secondary-container/20">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-lumi-indigo font-semibold tracking-wider">07:00</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Bangun Tidur</h3>
+</div>
+<!-- Checked Badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#B5EAD7] text-primary-container text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px] fill-icon" data-icon="check_circle">check_circle</span>
+                  Sudah
+                </span>
+</div>
+<div class="mt-2.5 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+                  00:30 - 07:00 (6.5 Jam)
+                </span>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#73510d] bg-[#fef3c7] px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-[#eab308]"></span>
+                  Sering Terbangun
+                </span>
+</div>
+<!-- Quote Excerpt (Sensitive, veiled when toggle pressed) -->
+<div class="mt-3 p-2.5 rounded-md bg-surface-container-low/70 border border-outline-variant/30 text-body-sm font-body-sm text-secondary italic veil-target">
+                “Kebangun jam 3 pagi cemas, nafas agak berat.”
+              </div>
+</div>
+</div>
+<!-- Item 2: 08:00 MAKAN PAGI -->
+<div class="relative">
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-[#FFC0CB] flex items-center justify-center shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#FFC0CB]"></span>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-margin border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.04)]">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">08:00</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Makan Pagi</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#B5EAD7] text-primary-container text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px] fill-icon" data-icon="check_circle">check_circle</span>
+                  Sudah
+                </span>
+</div>
+<p class="mt-2 text-body-sm font-body-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" data-icon="bakery_dining">bakery_dining</span>
+                Tercatat 08:15 • Roti gandum &amp; air hangat
+              </p>
+</div>
+</div>
+<!-- Item 3: 08:20 OBAT PAGI -->
+<div class="relative">
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-[#B5EAD7] flex items-center justify-center shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#B5EAD7]"></span>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-margin border border-lumi-mauve/25 shadow-[0_4px_16px_rgba(53,80,112,0.04)]">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2">
+<div>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">08:20</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Obat Pagi</h3>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#B5EAD7] text-primary-container text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[15px] fill-icon" data-icon="check_circle">check_circle</span>
+                  Sudah
+                </span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm text-secondary bg-surface-container-low px-3 py-1.5 rounded-DEFAULT inline-block">
+                Diminum pukul 08:20 <span class="font-medium text-primary">(Sertraline 50mg)</span>
+</div>
+</div>
+</div>
+<!-- Item 4: 10:30 CATATAN PERASAAN (Mauve Pink Tinted Card) -->
+<div class="relative">
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-lumi-mauve flex items-center justify-center shadow-xs">
+<span class="w-2 h-2 rounded-full bg-lumi-mauve"></span>
+</div>
+<div class="bg-tertiary-fixed/30 rounded-DEFAULT p-margin border border-lumi-mauve/40 shadow-[0_4px_16px_rgba(53,80,112,0.05)]">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-tertiary font-semibold">10:30</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<h3 class="text-headline-sm font-headline-sm text-primary">Catatan Perasaan</h3>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-white/70 text-tertiary font-medium">☁️ Level 2</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-tertiary/70" data-icon="edit_note">edit_note</span>
+</div>
+<!-- Emotional text with privacy veil -->
+<p class="mt-3 text-body-sm font-body-sm text-on-surface leading-relaxed veil-target">
+                “Badan lemas, tadi lupa naruh kunci kamar di mana sampai panik kecil. Mencoba tarik nafas pelan-pelan.”
+              </p>
+<!-- Tags / Badges -->
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/80 border border-lumi-mauve/30 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]" data-icon="photo_camera">photo_camera</span>
+                  1 Foto
+                </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#fde8e8] text-[#9b1c1c] text-label-sm font-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px] fill-icon" data-icon="star">star</span>
+                  Penting / Terapi
+                </span>
+</div>
+</div>
+</div>
+<!-- Item 5: 13:00 MAKAN SIANG (Pending) -->
+<div class="relative">
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-outline-variant flex items-center justify-center shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-margin border border-dashed border-outline-variant/60 shadow-sm flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">13:00</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Makan Siang</h3>
+<p class="text-label-sm font-label-sm text-secondary/80 mt-0.5">Jangan lupa minum air yang cukup</p>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/50 text-label-md font-label-md text-primary font-semibold touch-gentle">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+                Ceklis
+              </button>
+</div>
+</div>
+<!-- Item 6: 21:00 OBAT MALAM (Pending) -->
+<div class="relative">
+<div class="absolute -left-6 top-3 w-5 h-5 rounded-full bg-white border-2 border-outline-variant flex items-center justify-center shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-margin border border-dashed border-outline-variant/60 shadow-sm flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">21:00</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Obat Malam</h3>
+<p class="text-label-sm font-label-sm text-secondary/80 mt-0.5">Melatonin 3mg &amp; Magnesium</p>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/50 text-label-md font-label-md text-primary font-semibold touch-gentle">
+<span class="material-symbols-outlined text-[18px] text-secondary" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+                Ceklis
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Breathing Room Prompt -->
+<section class="py-2 text-center">
+<p class="text-label-sm font-label-sm text-secondary/70 italic">
+          Ingat: Tidak apa-apa jika harimu hanya tentang bertahan.
+        </p>
+</section>
+</main>
+<!-- Floating Bar Above Navigation (Dual Action Pill Controls) -->
+<div class="fixed bottom-[74px] left-0 right-0 z-40 max-w-[640px] mx-auto px-margin pointer-events-none">
+<div class="flex items-center justify-between gap-3 pointer-events-auto">
+<!-- Left: Emergency Low-Energy Pill -->
+<button class="flex-1 max-w-[195px] h-12 px-3 rounded-full bg-surface-container-lowest/95 backdrop-blur-md border border-lumi-mauve/40 text-primary-container shadow-[0_6px_20px_rgba(53,80,112,0.08)] flex items-center justify-center space-x-1.5 touch-gentle active:scale-95 transition-all text-label-sm font-label-sm font-semibold" id="lowEnergyBtn">
+<span class="text-base">🌧️</span>
+<span class="truncate">Lagi Sangat Lelah</span>
+</button>
+<!-- Right: Primary Warm + Catat FAB -->
+<button class="h-14 px-6 rounded-full bg-[#FFC0CB] text-[#355070] font-bold text-label-lg font-label-lg shadow-[0_8px_20px_rgba(255,192,203,0.45)] border border-[#D8A4B1]/30 flex items-center space-x-2 touch-gentle active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="add">add</span>
+<span>Catat</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Shared Component JSON Execution) -->
+<!-- active: 'Hari Ini', destination_count: 4 -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm h-[68px] max-w-[640px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t border-surface-container-high/60 dark:border-outline-variant/20 shadow-[0_-4px_24px_rgba(53,80,112,0.06)] dark:shadow-none rounded-t-lg">
+<!-- 1. Hari Ini (Active) -->
+<a class="flex flex-col items-center justify-center bg-tertiary-fixed dark:bg-tertiary-container text-on-tertiary-fixed dark:text-on-tertiary-container rounded-full px-4 py-1.5 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px] fill-icon" data-icon="today">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hari Ini</span>
+</a>
+<!-- 2. Catatan (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Catatan</span>
+</a>
+<!-- 3. Matriks (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm mt-0.5">Matriks</span>
+</a>
+<!-- 4. Sheet (Inactive) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim px-2 py-1.5 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="table_chart">table_chart</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sheet</span>
+</a>
+</nav>
+</div>
+<!-- Inline Interaction Logic (Privacy Veil & One-tap Low Energy Feedback) -->
+<script>
+    // Discreet View Toggle (Veil sensitive thoughts & notes)
+    const veilBtn = document.getElementById('veilToggleBtn');
+    let isVeiled = false;
+
+    if (veilBtn) {
+      veilBtn.addEventListener('click', () => {
+        isVeiled = !isVeiled;
+        const veilTargets = document.querySelectorAll('.veil-target');
+        veilTargets.forEach(el => {
+          if (isVeiled) {
+            el.classList.add('privacy-veiled');
+          } else {
+            el.classList.remove('privacy-veiled');
+          }
+        });
+        const iconSpan = veilBtn.querySelector('.material-symbols-outlined');
+        if (iconSpan) {
+          iconSpan.textContent = isVeiled ? 'visibility_off' : 'visibility';
+        }
+      });
+    }
+
+    // 1-Tap Low Energy Mode Notification Toast
+    const lowEnergyBtn = document.getElementById('lowEnergyBtn');
+    if (lowEnergyBtn) {
+      lowEnergyBtn.addEventListener('click', () => {
+        // Visual reassurance without startling popup
+        const originalText = lowEnergyBtn.innerHTML;
+        lowEnergyBtn.innerHTML = `
+          <span class="material-symbols-outlined text-[18px] text-[#2d4868]" data-icon="check">check</span>
+          <span class="text-[#2d4868]">Tercatat, istirahatlah</span>
+        `;
+        lowEnergyBtn.classList.add('bg-[#B5EAD7]', 'border-transparent');
+        setTimeout(() => {
+          lowEnergyBtn.innerHTML = originalText;
+          lowEnergyBtn.classList.remove('bg-[#B5EAD7]', 'border-transparent');
+        }, 2200);
+      });
+    }
+  </script>
+</body></html>

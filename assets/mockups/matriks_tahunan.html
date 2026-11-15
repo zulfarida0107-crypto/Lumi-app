@@ -1,0 +1,748 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Lumi — Matriks Tahunan</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#e5e1e3",
+            "surface-container": "#f1edef",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#f4f0f2",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#e8b2bf",
+            "surface-dim": "#dcd9db",
+            "primary-fixed-dim": "#adc9ee",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1c1b1d",
+            "tertiary-fixed-dim": "#eeb8c6",
+            "on-error-container": "#93000a",
+            "secondary": "#595d78",
+            "outline": "#73777e",
+            "on-tertiary-fixed": "#30111b",
+            "on-primary-fixed": "#001c37",
+            "inverse-primary": "#adc9ee",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#e5e1e3",
+            "surface-container-high": "#ebe7e9",
+            "on-secondary-container": "#5d617d",
+            "on-secondary-fixed-variant": "#414560",
+            "tertiary": "#512d38",
+            "background": "#fcf8fa",
+            "on-secondary-fixed": "#161a32",
+            "surface": "#fcf8fa",
+            "on-background": "#1c1b1d",
+            "inverse-surface": "#313032",
+            "outline-variant": "#c3c6ce",
+            "on-primary-container": "#a7c2e8",
+            "secondary-fixed-dim": "#c1c4e5",
+            "on-surface-variant": "#43474d",
+            "tertiary-container": "#6b434e",
+            "secondary-container": "#dbdeff",
+            "on-primary-fixed-variant": "#2d4868",
+            "on-tertiary-fixed-variant": "#623b47",
+            "surface-tint": "#456081",
+            "primary-container": "#355070",
+            "secondary-fixed": "#dee0ff",
+            "primary-fixed": "#d2e4ff",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffd9e1",
+            "primary": "#1d3958",
+            "surface-bright": "#fcf8fa",
+            "surface-container-low": "#f6f2f4",
+            "on-error": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter-sm": "0.75rem",
+            "margin": "1.25rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "gutter-lg": "1.5rem",
+            "margin-lg": "2rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+            "headline-sm": ["17px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "body-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #e5e1e3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-tertiary-fixed selection:text-on-tertiary-fixed pb-28">
+<!-- TopAppBar Component (from Shared Components JSON) -->
+<header class="bg-background border-b border-surface-container-high/40 sticky top-0 z-40">
+
+</header>
+<!-- Main Canvas Container -->
+<main class="max-w-[640px] mx-auto px-margin pt-4 flex flex-col gap-5">
+<!-- Title Section -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary tracking-tight">Matriks Tahunan</h1>
+
+</div>
+<p class="text-body-sm font-body-sm text-secondary">
+        Refleksi perjalanan 365 hari tanpa penghakiman. Setiap warna mewakili hadirnya dirimu.
+      </p>
+</div>
+<!-- Segmented Tab Switcher -->
+<div class="bg-surface-container p-1 rounded-full flex items-center">
+<button class="flex-1 py-1.5 px-4 text-label-md font-label-md rounded-full text-secondary hover:text-primary transition-all text-center" type="button">
+        Bulanan
+      </button>
+<button class="flex-1 py-1.5 px-4 text-label-md font-label-md rounded-full bg-surface-container-lowest text-primary font-semibold shadow-[0_2px_8px_rgba(53,80,112,0.06)] text-center transition-all" type="button">
+        Tahunan</button>
+</div>
+<!-- Year Selector & Completion Pill -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/30 shadow-[0_4px_16px_rgba(53,80,112,0.04)] flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<button class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-primary transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-label-sm font-label-sm text-secondary tracking-widest uppercase">TAHUN PENYEMBUHAN</span>
+<span class="text-headline-md font-headline-md text-primary font-bold tracking-tight">2026</span>
+</div>
+<button class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-container-low hover:bg-surface-container text-primary transition-transform active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-2 pt-1 border-t border-surface-container">
+<span class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-secondary bg-surface-container-low px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+          11 Bulan Tercatat • 312 Hari Terisi
+        </span>
+</div>
+</div>
+<!-- Year in Pixels Interactive Matrix Card -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-[0_4px_16px_rgba(53,80,112,0.04)] flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="palette">palette</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Kanvas 365 Hari</h2>
+</div>
+
+</div>
+<!-- Matrix Grid View (12 Columns + Row Indicator) -->
+<div class="overflow-x-auto custom-scroll pb-2">
+<div class="min-w-[480px] flex flex-col gap-2">
+<!-- Month Headers -->
+<div class="grid grid-cols-12 gap-1.5 text-center text-label-sm font-label-sm text-secondary font-semibold">
+<span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+<span>Mei</span><span>Jun</span><span>Jul</span><span>Agu</span>
+<span>Sep</span><span>Okt</span><span>Nov</span><span>Des</span>
+</div>
+<!-- 31 Days Grid Matrix simulation with mood colors -->
+<div class="grid grid-cols-12 gap-1.5">
+<!-- Col 1: Jan (31) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]" title="1 Jan: Damai"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+</div>
+<!-- Col 2: Feb (28) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+</div>
+<!-- Col 3: Mar (31) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+</div>
+<!-- Col 4: Apr (30) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+</div>
+<!-- Col 5: Mei (31) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+</div>
+<!-- Col 6: Jun (30) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+</div>
+<!-- Col 7: Jul (31 - Most peaceful month) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+</div>
+<!-- Col 8: Agu (31) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+</div>
+<!-- Col 9: Sep (30 - Another peaceful month) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+</div>
+<!-- Col 10: Okt (31) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+</div>
+<!-- Col 11: Nov (30) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#355070]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#6D597A]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-high/40"></span>
+</div>
+<!-- Col 12: Des (Unfilled / In Progress) -->
+<div class="flex flex-col gap-1">
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm bg-[#B56576]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#84A98C]"></span>
+<span class="h-3 w-full rounded-sm bg-[#E56B6F]"></span>
+<span class="h-3 w-full rounded-sm border border-dashed border-outline-variant bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+<span class="h-3 w-full rounded-sm bg-surface-container-low"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Legend (Interactive chips) -->
+<div class="pt-2 border-t border-surface-container">
+<span class="text-label-sm font-label-sm text-secondary block mb-2 font-medium">Legenda Rasa:</span>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface">
+<span class="w-3 h-3 rounded-full bg-[#84A98C]"></span>
+<span>Damai / Stabil</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface">
+<span class="w-3 h-3 rounded-full bg-[#E56B6F]"></span>
+<span>Tenang</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface">
+<span class="w-3 h-3 rounded-full bg-[#B56576]"></span>
+<span>Biasa</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface">
+<span class="w-3 h-3 rounded-full bg-[#6D597A]"></span>
+<span>Lelah</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full text-label-sm font-label-sm text-on-surface">
+<span class="w-3 h-3 rounded-full bg-[#355070]"></span>
+<span>Hari Berat</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Annual Mood Breakdown & Statistics -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-[0_4px_16px_rgba(53,80,112,0.04)] flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="pie_chart">pie_chart</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Proporsi Suasana Hati 2026</h2>
+</div>
+
+</div>
+<!-- Segmented Visual Bar -->
+<div class="flex flex-col gap-2">
+<div class="w-full h-4 rounded-full overflow-hidden flex bg-surface-container">
+<div class="bg-[#84A98C] h-full" style="width: 42%;" title="Damai &amp; Tenang (42%)"></div>
+<div class="bg-[#B56576] h-full" style="width: 36%;" title="Biasa (36%)"></div>
+<div class="bg-[#355070] h-full" style="width: 22%;" title="Berat &amp; Lelah (22%)"></div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-1 text-center">
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-[#84A98C]">42%</span>
+<span class="text-label-sm font-label-sm text-secondary">Damai &amp; Tenang</span>
+<span class="text-label-sm font-label-sm text-secondary/70">131 hari</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-[#B56576]">36%</span>
+<span class="text-label-sm font-label-sm text-secondary">Biasa</span>
+<span class="text-label-sm font-label-sm text-secondary/70">112 hari</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-[#355070]">22%</span>
+<span class="text-label-sm font-label-sm text-secondary">Berat &amp; Lelah</span>
+<span class="text-label-sm font-label-sm text-secondary/70">69 hari</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Annual Highlights / Kilasan Tahunan (Bento Card Format) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md border border-outline-variant/30 shadow-[0_4px_16px_rgba(53,80,112,0.04)] flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Kilasan Tahunan</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Metric 1 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="wb_sunny">wb_sunny</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary">Bulan Paling Tenang</span>
+<span class="text-body-md font-body-md font-semibold text-primary">Juli &amp; September</span>
+<span class="text-label-sm font-label-sm text-secondary/80 mt-0.5">85% hari dalam stabilitas</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="bedtime">bedtime</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary">Rata-rata Tidur Setahun</span>
+<span class="text-body-md font-body-md font-semibold text-primary">7.1 Jam / malam</span>
+<span class="text-label-sm font-label-sm text-secondary/80 mt-0.5">Pola membaik di semester 2</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-start gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-lg" data-icon="psychology">psychology</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-secondary">Sesi Konsultasi &amp; Terapi</span>
+<span class="text-body-md font-body-md font-semibold text-primary">18 Catatan Terbintangi</span>
+<span class="text-label-sm font-label-sm text-secondary/80 mt-0.5">Semua didokumentasikan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Export & Share Actions (Tactile Non-Judgmental Companion) -->
+<div class="flex flex-col gap-2.5 pt-1">
+<button class="w-full h-14 rounded-full bg-tertiary-fixed hover:bg-tertiary-fixed-dim text-on-tertiary-fixed font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(255,192,203,0.45)] transition-all active:scale-98" type="button">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+        Unduh PDF / Gambar HD</button>
+
+</div>
+<!-- Soft Empathy Message -->
+<div class="text-center py-2">
+
+</div>
+</main>
+<!-- BottomNavBar Component (from Shared Components JSON) -->
+<!-- Active state mapped logically to 'Matriks' tab -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm h-[68px] max-w-[640px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t border-surface-container-high/60 dark:border-outline-variant/20 shadow-[0_-4px_24px_rgba(53,80,112,0.06)] rounded-t-lg">
+<!-- Tab 1: Hari Ini -->
+<a class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hari Ini</span>
+</a>
+<!-- Tab 2: Catatan -->
+<a class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="edit_note">edit_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Catatan</span>
+</a>
+<!-- Tab 3: Matriks (ACTIVE - style_active_navigation applied) -->
+<a class="flex flex-col items-center justify-center bg-tertiary-fixed dark:bg-tertiary-container text-on-tertiary-fixed dark:text-on-tertiary-container rounded-full px-4 py-1.5 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="grid_view" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">grid_view</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-semibold">Matriks</span>
+</a>
+<!-- Tab 4: Sheet -->
+<a class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="table_chart">table_chart</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sheet</span>
+</a>
+</nav>
+
+
+</body></html>

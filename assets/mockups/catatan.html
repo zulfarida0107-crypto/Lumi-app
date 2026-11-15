@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi — Tab Catatan (Jurnal &amp; Memori)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Container Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim as mandated -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fcf8fa",
+            "outline": "#73777e",
+            "tertiary-fixed-dim": "#eeb8c6",
+            "secondary-container": "#dbdeff",
+            "primary-fixed": "#d2e4ff",
+            "surface-container-low": "#f6f2f4",
+            "primary": "#1d3958",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c3c6ce",
+            "on-secondary-fixed": "#161a32",
+            "error-container": "#ffdad6",
+            "surface": "#fcf8fa",
+            "error": "#ba1a1a",
+            "on-surface-variant": "#43474d",
+            "surface-dim": "#dcd9db",
+            "inverse-surface": "#313032",
+            "on-error": "#ffffff",
+            "tertiary-fixed": "#ffd9e1",
+            "surface-variant": "#e5e1e3",
+            "background": "#fcf8fa",
+            "on-background": "#1c1b1d",
+            "tertiary-container": "#6b434e",
+            "on-primary-container": "#a7c2e8",
+            "surface-tint": "#456081",
+            "secondary-fixed-dim": "#c1c4e5",
+            "inverse-on-surface": "#f4f0f2",
+            "surface-container-high": "#ebe7e9",
+            "primary-fixed-dim": "#adc9ee",
+            "on-surface": "#1c1b1d",
+            "tertiary": "#512d38",
+            "secondary": "#595d78",
+            "on-secondary-fixed-variant": "#414560",
+            "on-primary-fixed-variant": "#2d4868",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#dee0ff",
+            "on-secondary-container": "#5d617d",
+            "surface-container-highest": "#e5e1e3",
+            "on-tertiary-fixed-variant": "#623b47",
+            "on-tertiary-fixed": "#30111b",
+            "inverse-primary": "#adc9ee",
+            "on-error-container": "#93000a",
+            "on-tertiary-container": "#e8b2bf",
+            "primary-container": "#355070",
+            "surface-container": "#f1edef",
+            "on-primary-fixed": "#001c37"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "gutter-lg": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "2rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "0.75rem",
+            "gutter": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["13px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "body-lg": ["17px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-sm": ["17px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Material Symbols Configuration */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Tactile Elevation Shadows */
+    .sanctuary-card-shadow {
+      box-shadow: 0 4px 16px rgba(53, 80, 112, 0.05);
+    }
+    .fab-tender-shadow {
+      box-shadow: 0 8px 24px rgba(255, 192, 203, 0.45);
+    }
+    .bottom-nav-soft-shadow {
+      box-shadow: 0 -4px 24px rgba(53, 80, 112, 0.06);
+    }
+    
+    /* Smooth veil blur utility */
+    .privacy-veiled {
+      filter: blur(6px);
+      user-select: none;
+    }
+    
+    /* Hide scrollbars gracefully for horizontal filters */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- Mobile Frame Container (clamped to 640px) -->
+<div class="relative w-full max-w-[640px] bg-background min-h-screen flex flex-col pb-28">
+<!-- 1. TOP APP BAR (from Shared Component JSON) -->
+<header class="sticky top-0 z-40 bg-background/95 backdrop-blur-md">
+<div class="flex justify-between items-center w-full px-margin h-14 max-w-[640px] mx-auto">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary" data-icon="spa" data-weight="fill" style="font-variation-settings: 'FILL' 1; font-size: 22px;">spa</span>
+<span class="text-headline-md font-headline-md text-primary font-semibold tracking-tight">Lumi</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<!-- Discreet View / Mata Teduh button -->
+<button aria-label="Samarkan Catatan" class="p-2 rounded-full hover:bg-surface-container-low transition-colors duration-150 active:scale-95 text-secondary flex items-center justify-center" id="toggle-privacy-btn">
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+</button>
+</div>
+</div>
+<!-- Soft Subtitle Prompt (Ruang Teduh & Jejak Harian) -->
+<div class="px-margin pb-space-sm pt-space-xs">
+<h1 class="font-headline-sm text-headline-sm text-primary">Catatan &amp; Jejak Perasaan</h1>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">Tuliskan apa saja yang melintas tanpa harus sempurna.</p>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="flex-1 flex flex-col px-margin gap-space-md pt-space-xs">
+<!-- 2. FILTER & PENCARIAN CEPAT -->
+<section aria-label="Pencarian dan Filter Catatan" class="flex flex-col gap-space-sm">
+<!-- Search Field (Tactile Pill) -->
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-4 text-secondary pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-[48px] pl-11 pr-4 bg-surface-container-lowest rounded-full border border-surface-container-high/70 text-on-surface font-body-md text-body-md placeholder:text-secondary/60 focus:outline-none focus:ring-2 focus:ring-tertiary-fixed focus:border-primary-container sanctuary-card-shadow transition-all" placeholder="Cari dalam kenangan &amp; catatan..." type="text"/>
+</div>
+<!-- Horizontal Filter Chips (Forgiving targets for low fatigue) -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-margin px-margin">
+<!-- Filter 1: Semua Catatan -->
+<button class="shrink-0 px-3.5 py-2 rounded-full bg-surface-container-lowest border border-surface-container-high text-secondary font-label-md text-label-md active:scale-95 transition-all hover:bg-surface-container-low">
+            Semua Catatan (24)
+          </button>
+<!-- Filter 2: ⭐ Siap Terapi (ACTIVE HIGHLIGHT) -->
+<button class="shrink-0 px-3.5 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>Siap Terapi / Pin (6)</span>
+</button>
+<!-- Filter 3: Low Energy -->
+<button class="shrink-0 px-3.5 py-2 rounded-full bg-surface-container-lowest border border-surface-container-high text-secondary font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-all hover:bg-surface-container-low">
+<span>🌧️ Low Energy / Berat (4)</span>
+</button>
+<!-- Filter 4: Ada Foto -->
+<button class="shrink-0 px-3.5 py-2 rounded-full bg-surface-container-lowest border border-surface-container-high text-secondary font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-all hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]" data-icon="photo_camera">photo_camera</span>
+<span>Ada Foto (8)</span>
+</button>
+<!-- Filter 5: Memo Suara -->
+<button class="shrink-0 px-3.5 py-2 rounded-full bg-surface-container-lowest border border-surface-container-high text-secondary font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-all hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px]" data-icon="mic">mic</span>
+<span>Memo Suara (3)</span>
+</button>
+</div>
+</section>
+<!-- 3. KARTU RINGKASAN TERAPI CEPAT (Banner Siap Konsultasi) -->
+<section aria-label="Mode Siap Konsultasi">
+<div class="relative overflow-hidden rounded-lg bg-surface-container-lowest p-space-md border border-tertiary-fixed sanctuary-card-shadow flex flex-col gap-3">
+<!-- Subtle warm decorative background accent -->
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-tertiary-fixed/30 pointer-events-none blur-xl"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="p-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</span>
+<span class="font-label-lg text-label-lg text-primary font-semibold">Mode Siap Konsultasi Aktif</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container text-secondary px-2.5 py-1 rounded-full">
+              6 Catatan Pilihan
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Catatan penting ditandai untuk dibagikan secara tenang saat sesi bersama dokter/psikiater terdekat.
+          </p>
+<div class="pt-1 flex items-center justify-between">
+<button class="inline-flex items-center gap-1.5 bg-primary-container text-on-primary font-label-md text-label-md px-4 py-2 rounded-full active:scale-95 transition-transform hover:opacity-95">
+<span>Buka Ringkasan Rapi</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<span class="font-label-sm text-label-sm text-secondary/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield">shield</span>
+              Aman &amp; Terenkripsi
+            </span>
+</div>
+</div>
+</section>
+<!-- 4. DAFTAR FEED CATATAN / JURNAL HARIAN -->
+<section aria-label="Daftar Entri Catatan" class="flex flex-col gap-space-md">
+<!-- KARTU 1: Ditandai Terapi & Multimedia -->
+<article class="relative bg-surface-container-lowest rounded-lg p-space-md border border-tertiary-fixed-dim/40 sanctuary-card-shadow flex flex-col gap-space-sm transition-all hover:border-tertiary-fixed">
+<!-- Header Bar: Timestamp & Mood Tag -->
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-label-md text-label-md text-primary font-semibold">Kemarin, 14 Nov</span>
+<span class="text-secondary/50 font-body-sm">•</span>
+<span class="font-label-md text-label-md text-secondary">21:15</span>
+</div>
+<div class="inline-flex items-center gap-1.5 mt-1 bg-surface-container-low px-2.5 py-0.5 rounded-full w-fit">
+<span class="text-sm">☁️</span>
+<span class="font-label-sm text-label-sm text-secondary">Level 2: Lelah &amp; Berkabut</span>
+</div>
+</div>
+<!-- Pinned Badge & Menu -->
+<div class="flex items-center gap-1">
+<span class="inline-flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-2.5 py-1 rounded-full font-medium">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                Catatan Terapi
+              </span>
+<button aria-label="Opsi Catatan" class="p-1 text-secondary/70 hover:text-primary rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Journal Text Content (Veilable) -->
+<div class="journal-text-content">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              Badan terasa sangat berat sejak jam 3 sore. Sempat lupa sudah minum obat siang atau belum, lalu cemas berlebih. Mencoba grounding teknik 5-4-3-2-1 di kamar sampai detak jantung kembali melambat...
+            </p>
+</div>
+<!-- Attachments: Micro Thumbnail & Audio Memo Pill -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1">
+<!-- Thumbnail Foto Kecil -->
+<div class="flex items-center gap-2 bg-surface-container-low p-1.5 pr-3 rounded-full border border-surface-container-high/60 w-fit">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="A soft, warm minimalist bedside lamp glowing tenderly in a quiet bedroom sanctuary, low-key lighting, calming dusty pastel hues, high aesthetic peace, 35mm film mood, cozy emotional retreat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmx2bl7odZ7mcrwKO0tbdqao2wPw_c0O-2ppWK16LxvS_D1B-YpednUtb1eSfVIAxGAZvz3ub7sAYa89Vo9WEohw2oke8hp8Fg43TxbqBAiX7sHQXb0XuP4XNLaxYpZlJYSj2oXro2x-j65S-HbYTfg5CcP0wc7cC1on5Mh3wIiVpIC58mSbtksM0qjj_rDZJJN9UGFlCHKRF4M7Xu23Qm6BVhNH0gbNvKpk1Se8c"/>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="image">image</span>
+                Lampu Tidur
+              </span>
+</div>
+<!-- Audio Memo Row (Voice Log) -->
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-full border border-surface-container-high/60 flex-1">
+<button aria-label="Putar Memo Suara" class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center active:scale-95">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-1 flex items-center gap-1">
+<!-- Tiny visual audio waveform bars -->
+<span class="w-1 h-3 bg-secondary/40 rounded-full"></span>
+<span class="w-1 h-4 bg-primary-container rounded-full"></span>
+<span class="w-1 h-2 bg-secondary/30 rounded-full"></span>
+<span class="w-1 h-5 bg-primary-container rounded-full"></span>
+<span class="w-1 h-3 bg-secondary/50 rounded-full"></span>
+<span class="w-1 h-2 bg-secondary/20 rounded-full"></span>
+<span class="w-1 h-4 bg-primary-container rounded-full"></span>
+<span class="w-1 h-2 bg-secondary/40 rounded-full"></span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">01:24</span>
+</div>
+</div>
+</article>
+<!-- KARTU 2: Level 3 Tenang & Micro Habit Tags -->
+<article class="relative bg-surface-container-lowest rounded-lg p-space-md border border-surface-container-high/60 sanctuary-card-shadow flex flex-col gap-space-sm transition-all hover:border-surface-container-highest">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-primary font-semibold">12 Nov</span>
+<span class="text-secondary/50 font-body-sm">•</span>
+<span class="font-label-md text-label-md text-secondary">10:30</span>
+</div>
+<div class="inline-flex items-center gap-1.5 mt-1 bg-surface-container-low px-2.5 py-0.5 rounded-full w-fit">
+<span class="text-sm">⛅</span>
+<span class="font-label-sm text-label-sm text-secondary">Level 3: Biasa / Tenang</span>
+</div>
+</div>
+<button aria-label="Opsi Catatan" class="p-1 text-secondary/70 hover:text-primary rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="journal-text-content">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              Mulai mencoba jalan kaki 10 menit di sekitar teras. Sinar matahari pagi membantu sedikit mengurangi rasa hampa. Menanam tanaman sirih gading di pot kecil.
+            </p>
+</div>
+<!-- Micro Tags -->
+<div class="flex items-center gap-2 pt-1 flex-wrap">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-secondary">#Rutinitas</span>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-secondary">#UdaraPagi</span>
+</div>
+</article>
+<!-- KARTU 3: Level 1 Low Energy / Emergency Log -->
+<article class="relative bg-surface-container-lowest rounded-lg p-space-md border-l-4 border-l-secondary border-t border-r border-b border-surface-container-high/60 sanctuary-card-shadow flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-primary font-semibold">10 Nov</span>
+<span class="text-secondary/50 font-body-sm">•</span>
+<span class="font-label-md text-label-md text-secondary">02:15 (Tengah Malam)</span>
+</div>
+<div class="inline-flex items-center gap-1.5 mt-1 bg-secondary-container/40 px-2.5 py-0.5 rounded-full w-fit">
+<span class="text-sm">🌧️</span>
+<span class="font-label-sm text-label-sm text-on-secondary-container font-medium">Level 1: Sangat Berat</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 bg-surface-container text-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span>
+              1-Tap Low-Energy
+            </span>
+</div>
+<div class="journal-text-content">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed italic text-secondary">
+              "Pikiran bising sekali, insomnia kambuh. Tidak sanggup mengetik banyak, hanya butuh menandai bahwa malam ini terlewati."
+            </p>
+</div>
+<!-- Compassionate Comfort Footer -->
+<div class="pt-1 flex items-center justify-between border-t border-surface-container-high/40 text-secondary font-label-sm text-label-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+              Sudah aman sekarang. Tarik napas perlahan.
+            </span>
+</div>
+</article>
+<!-- KARTU 4: Level 4 Ringan & Lega -->
+<article class="relative bg-surface-container-lowest rounded-lg p-space-md border border-surface-container-high/60 sanctuary-card-shadow flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-primary font-semibold">08 Nov</span>
+<span class="text-secondary/50 font-body-sm">•</span>
+<span class="font-label-md text-label-md text-secondary">16:40</span>
+</div>
+<div class="inline-flex items-center gap-1.5 mt-1 bg-surface-container-low px-2.5 py-0.5 rounded-full w-fit">
+<span class="text-sm">🌤️</span>
+<span class="font-label-sm text-label-sm text-secondary">Level 4: Ringan &amp; Lega</span>
+</div>
+</div>
+<button aria-label="Opsi Catatan" class="p-1 text-secondary/70 hover:text-primary rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="journal-text-content">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              Sesi mengobrol singkat dengan teman lama lewat telepon. Senang rasanya bisa tertawa tanpa merasa bersalah. Semoga energi ini bisa menetap sampai esok.
+            </p>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-secondary">#KoneksiSosial</span>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container text-secondary">#MomenSyukur</span>
+</div>
+</article>
+</section>
+</main>
+<!-- 5. FLOATING ACTION BUTTON (Primary "+ Tulis Jurnal Teduh") -->
+<div class="fixed bottom-[84px] left-0 right-0 w-full z-40 pointer-events-none flex justify-center">
+<div class="w-full max-w-[640px] px-margin flex justify-end">
+<button aria-label="Tulis Jurnal Teduh Baru" class="pointer-events-auto flex items-center gap-2.5 bg-tertiary-fixed text-primary font-headline-sm text-headline-sm font-bold px-6 h-14 rounded-full fab-tender-shadow hover:bg-tertiary-fixed-dim active:scale-95 transition-all duration-200" id="btn-tulis-catatan">
+<span class="material-symbols-outlined text-[24px]" data-icon="edit">edit</span>
+<span class="font-label-lg text-label-lg font-bold tracking-tight text-primary">+ Tulis Jurnal Teduh</span>
+</button>
+</div>
+</div>
+<!-- 6. BOTTOM NAVIGATION BAR (Shared Component JSON Blueprint) -->
+<!-- Tab 2: 'Catatan' is STRICTLY ACTIVE according to prompt context -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm h-[68px] max-w-[640px] mx-auto bg-surface-container-lowest rounded-t-lg border-t border-surface-container-high/60 bottom-nav-soft-shadow">
+<!-- Tab 1: Hari Ini (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="today">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hari Ini</span>
+</button>
+<!-- Tab 2: Catatan (ACTIVE MANDATED STATE) -->
+<!-- Injected: bg-tertiary-fixed text-on-tertiary-fixed rounded-full px-4 py-1.5 -->
+<button class="flex flex-col items-center justify-center bg-tertiary-fixed text-on-tertiary-fixed rounded-full px-4 py-1.5 transition-all duration-200 active:scale-95 shadow-sm">
+<span class="material-symbols-outlined" data-icon="edit_note" data-weight="fill" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="text-label-sm font-label-sm font-semibold mt-0.5">Catatan</span>
+</button>
+<!-- Tab 3: Matriks (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm mt-0.5">Matriks</span>
+</button>
+<!-- Tab 4: Sheet (Inactive) -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="table_chart">table_chart</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sheet</span>
+</button>
+</nav>
+</div>
+<!-- Micro-interactions: Privacy Veil Toggle and FAB Click Feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const privacyBtn = document.getElementById('toggle-privacy-btn');
+      const journalTexts = document.querySelectorAll('.journal-text-content');
+      let isVeiled = false;
+
+      privacyBtn.addEventListener('click', () => {
+        isVeiled = !isVeiled;
+        journalTexts.forEach(el => {
+          if (isVeiled) {
+            el.classList.add('privacy-veiled');
+          } else {
+            el.classList.remove('privacy-veiled');
+          }
+        });
+        
+        // Update lock icon visual state
+        const iconSpan = privacyBtn.querySelector('.material-symbols-outlined');
+        if (isVeiled) {
+          iconSpan.textContent = 'lock_open';
+          privacyBtn.setAttribute('aria-label', 'Buka Kunci Teks');
+          privacyBtn.classList.add('bg-tertiary-fixed');
+        } else {
+          iconSpan.textContent = 'lock';
+          privacyBtn.setAttribute('aria-label', 'Samarkan Catatan');
+          privacyBtn.classList.remove('bg-tertiary-fixed');
+        }
+      });
+    });
+  </script>
+</body></html>

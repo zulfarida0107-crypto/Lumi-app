@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumi - Matriks Perkembangan</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline": "#73777e",
+            "inverse-surface": "#313032",
+            "on-surface": "#1c1b1d",
+            "secondary": "#595d78",
+            "on-secondary-fixed": "#161a32",
+            "outline-variant": "#c3c6ce",
+            "surface-variant": "#e5e1e3",
+            "surface-container-highest": "#e5e1e3",
+            "on-primary-container": "#a7c2e8",
+            "tertiary": "#512d38",
+            "secondary-fixed": "#dee0ff",
+            "secondary-container": "#dbdeff",
+            "on-tertiary-container": "#e8b2bf",
+            "tertiary-fixed-dim": "#eeb8c6",
+            "on-surface-variant": "#43474d",
+            "error": "#ba1a1a",
+            "inverse-primary": "#adc9ee",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#ffd9e1",
+            "background": "#fcf8fa",
+            "surface-tint": "#456081",
+            "on-primary-fixed": "#001c37",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#adc9ee",
+            "on-tertiary-fixed-variant": "#623b47",
+            "surface-container-low": "#f6f2f4",
+            "surface-container": "#f1edef",
+            "error-container": "#ffdad6",
+            "surface-bright": "#fcf8fa",
+            "on-secondary-container": "#5d617d",
+            "on-primary-fixed-variant": "#2d4868",
+            "surface": "#fcf8fa",
+            "primary-fixed": "#d2e4ff",
+            "secondary-fixed-dim": "#c1c4e5",
+            "primary": "#1d3958",
+            "inverse-on-surface": "#f4f0f2",
+            "on-secondary-fixed-variant": "#414560",
+            "surface-container-high": "#ebe7e9",
+            "surface-dim": "#dcd9db",
+            "tertiary-container": "#6b434e",
+            "on-background": "#1c1b1d",
+            "on-tertiary-fixed": "#30111b",
+            "on-error": "#ffffff",
+            "primary-container": "#355070",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff"
+          },
+          borderRadius: {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-sm": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter-lg": "1.5rem",
+            "margin-lg": "2rem",
+            "gutter": "1rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-sm": ["17px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" }],
+            "headline-lg": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-xl-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "0em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.03em", fontWeight: "500" }],
+            "body-lg": ["17px", { lineHeight: "26px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" }],
+            "body-md": ["15px", { lineHeight: "22px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "body-sm": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1edef;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c3c6ce;
+      border-radius: 4px;
+    }
+    .table-sticky-col {
+      position: sticky;
+      left: 0;
+      z-index: 10;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased selection:bg-tertiary-fixed min-h-screen pb-24">
+<!-- Main Responsive Container (clamped to 390px-640px) -->
+<div class="max-w-[640px] mx-auto min-h-screen flex flex-col bg-background relative">
+<!-- Top Navigation Anchor (Shared Component: TopAppBar) -->
+<header class="sticky top-0 z-40 bg-background/95 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center w-full px-margin h-14 max-w-[640px] mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+<span class="text-headline-md font-headline-md text-primary font-bold tracking-tight">Lumi</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm text-secondary">Ruang Teduh Pribadi</span>
+</div>
+</div>
+</header>
+<!-- Canvas Stream -->
+<main class="flex-1 px-margin pt-space-sm space-y-space-md">
+<!-- Screen Title & Month Switcher -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile text-primary tracking-tight">Matriks Perkembangan</h1>
+<p class="text-body-sm font-body-sm text-secondary mt-0.5">Membaca ritme tubuh dengan lembut tanpa menghakimi.</p>
+</div>
+<button aria-label="Bantuan atau Penjelasan" class="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-secondary active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-base" data-icon="info">info</span>
+</button>
+</div>
+<!-- Month Switcher Carousel Control -->
+<div class="flex items-center justify-between bg-surface-container-lowest border border-outline-variant/30 rounded-full px-space-md py-1.5 shadow-[0_4px_16px_rgba(53,80,112,0.03)]">
+<button aria-label="Bulan sebelumnya" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="calendar_month">calendar_month</span>
+<span class="text-label-lg font-label-lg text-primary tracking-wide uppercase">NOVEMBER 2026</span>
+</div>
+<button aria-label="Bulan berikutnya" class="w-8 h-8 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Segmented Toggle Tabs -->
+<div class="grid grid-cols-2 p-1 bg-surface-container rounded-full text-center">
+<button class="py-2 px-3 rounded-full bg-surface-container-lowest text-primary shadow-sm text-label-md font-label-md font-semibold flex items-center justify-center gap-1.5 transition-all">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+            Matriks Bulanan
+          </button>
+<button class="py-2 px-3 rounded-full text-secondary hover:text-primary text-label-md font-label-md font-medium flex items-center justify-center gap-1.5 transition-all">
+            Tahunan (Year in Pixels)
+          </button>
+</div>
+</section>
+<!-- Monthly Summary Metric Bento Grid -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/30 p-space-md shadow-[0_4px_20px_rgba(53,80,112,0.04)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="insights">insights</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Rangkuman November</h2>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2.5 py-0.5 rounded-full">30 Hari Tercatat</span>
+</div>
+<!-- 3-Pillar Key Stat Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+<!-- Mood Stat -->
+<div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/20 flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-secondary">Rata-rata Mood</span>
+<div class="my-1 flex items-baseline gap-1.5">
+<span class="text-headline-md font-headline-md text-primary font-bold">3.4</span>
+<span class="text-label-sm font-label-sm text-secondary">/ 5.0</span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant">
+<span>⛅</span>
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="arrow_forward">arrow_forward</span>
+<span>🌤️ Membaik</span>
+</div>
+</div>
+<!-- Sleep Stat -->
+<div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/20 flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-secondary">Rata-rata Tidur</span>
+<div class="my-1 flex items-baseline gap-1">
+<span class="text-headline-md font-headline-md text-primary font-bold">6.8</span>
+<span class="text-label-sm font-label-sm text-secondary">Jam</span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#B5EAD7]"></span>
+<span>15 hari cukup rest</span>
+</div>
+</div>
+<!-- Health Habits Stat -->
+<div class="bg-surface-container-low rounded-lg p-3 border border-outline-variant/20 flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-secondary">Kepatuhan Rutin</span>
+<div class="my-1 space-y-0.5">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-secondary">Obat:</span>
+<span class="text-primary font-semibold">92% <span class="text-[10px] text-tertiary-container">(Tinggi)</span></span>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-secondary">Makan:</span>
+<span class="text-primary font-semibold">80%</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Mood Legend Bar (Tactile Soft-Pastel) -->
+<div class="pt-2 border-t border-surface-container-high/40 flex flex-wrap items-center justify-between gap-1 text-[11px] text-secondary">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#355070]"></span>
+<span>Lv 1 Berat</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#4A4E69]"></span>
+<span>Lv 2 Lelah</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#D8A4B1]"></span>
+<span>Lv 3 Biasa</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#FFC0CB]"></span>
+<span>Lv 4 Tenang</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-[#B5EAD7]"></span>
+<span>Lv 5 Stabil</span>
+</div>
+</div>
+</section>
+<!-- Spreadsheet Matrix Table Section -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/30 p-space-md shadow-[0_4px_20px_rgba(53,80,112,0.04)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="table_rows">table_rows</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Tabel Matriks Harian</h2>
+</div>
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="swipe">swipe</span> Geser horizontal
+          </span>
+</div>
+<!-- Responsive Matrix Table Container with Sticky Date Column -->
+<div class="overflow-x-auto custom-scrollbar border border-outline-variant/20 rounded-lg">
+<table class="w-full text-left text-body-sm font-body-sm min-w-[360px] border-collapse">
+<thead>
+<tr class="bg-surface-container text-secondary text-label-sm font-label-sm border-b border-outline-variant/20">
+<th class="py-2.5 px-3 table-sticky-col bg-surface-container font-semibold w-16" scope="col">Tgl</th>
+<th class="py-2.5 px-3 font-semibold text-center" scope="col">Mood</th>
+<th class="py-2.5 px-3 font-semibold text-center" scope="col">Tidur</th>
+<th class="py-2.5 px-3 font-semibold text-center" scope="col">Kualitas</th>
+<th class="py-2.5 px-3 font-semibold text-center" scope="col">Mkn</th>
+<th class="py-2.5 px-3 font-semibold text-center" scope="col">Obat</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/15 text-primary">
+<!-- Row 01 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  01 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#355070]/15 text-[#355070]">
+<span>🌧️</span> 1
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">3.5j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-error-container text-error font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Susah
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">❌✅❌</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅❌</td>
+</tr>
+<!-- Row 02 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  02 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#4A4E69]/15 text-[#4A4E69]">
+<span>☁️</span> 2
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">5.0j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-secondary-container text-secondary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Mimpi
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅❌✅</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅</td>
+</tr>
+<!-- Row 03 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  03 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-tertiary-fixed text-tertiary font-medium">
+<span>⛅</span> 3
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">7.0j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span> Bangun
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅✅</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅</td>
+</tr>
+<!-- Row 04 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  04 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#B5EAD7] text-primary">
+<span>🌤️</span> 4
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">8.0j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[#B5EAD7]/50 text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Pulas
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅✅</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅</td>
+</tr>
+<!-- Row 05 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  05 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#B5EAD7] text-primary">
+<span>🌸</span> 5
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">7.5j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-[#B5EAD7]/50 text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Pulas
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅✅</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅</td>
+</tr>
+<!-- Ellipsis Break Row -->
+<tr>
+<td class="py-1 px-3 text-center text-xs text-outline bg-surface-container-low/40" colspan="6">
+<span class="tracking-widest">••••••</span>
+</td>
+</tr>
+<!-- Row 15 -->
+<tr class="hover:bg-surface-container-low/80 active:bg-surface-container transition-colors cursor-pointer group bg-surface-container-low/30">
+<td class="py-2.5 px-3 table-sticky-col bg-surface-container-lowest group-hover:bg-surface-container-low/80 font-bold text-secondary">
+                  15 Nov
+                </td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-[#4A4E69]/15 text-[#4A4E69]">
+<span>☁️</span> 2
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center font-medium">6.5j</td>
+<td class="py-2.5 px-3 text-center">
+<span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span> Bangun
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅❌✅</td>
+<td class="py-2.5 px-3 text-center tracking-widest text-xs">✅✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Helper Hint Pill -->
+<div class="flex items-center gap-2 p-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 text-secondary text-label-sm font-label-sm">
+<span class="text-base leading-none">💡</span>
+<p class="truncate">Ketuk baris tanggal untuk membaca alasan tidur &amp; catatan lengkap.</p>
+</div>
+</section>
+<!-- Year in Pixels Preview Mini-Section -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant/30 p-space-md shadow-[0_4px_20px_rgba(53,80,112,0.04)] space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="grid_view">grid_view</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Year in Pixels (2026)</h2>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded-full font-semibold">11 Bulan</span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary">
+          Pola tahunan suasana hati. Setiap kotak merefleksikan satu hari tanpa penghakiman.
+        </p>
+<!-- Mini Heatmap Pixel Matrix (Row Grid Simulation) -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 space-y-2">
+<!-- Month labels preview -->
+<div class="flex justify-between text-[10px] text-secondary font-medium px-0.5">
+<span>Jan</span>
+<span>Mar</span>
+<span>Mei</span>
+<span>Jul</span>
+<span>Sep</span>
+<span>Nov</span>
+</div>
+<!-- Pixels Grid (7 rows x ~24 columns for annual rhythm preview) -->
+<div class="grid grid-rows-6 grid-flow-col gap-1 overflow-x-auto custom-scrollbar pb-1">
+<!-- Simulated pixel dots reflecting mood levels -->
+<!-- Colors: #B5EAD7, #FFC0CB, #D8A4B1, #4A4E69, #355070 -->
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#355070]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#355070]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#355070]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#355070]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#355070]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#FFC0CB]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#D8A4B1]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#4A4E69]"></div>
+<div class="w-3 h-3 rounded-[3px] bg-[#B5EAD7]"></div>
+</div>
+</div>
+<!-- Therapy / Consultation Summary Quick Button -->
+<button class="w-full py-3 px-space-md rounded-full bg-primary-container text-on-primary text-label-lg font-label-lg font-semibold flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(53,80,112,0.2)] active:scale-95 transition-transform">
+<span class="text-base">⭐</span>
+<span>Lihat Ringkasan Konsultasi Psikiater (Mode Terapi)</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component: BottomNavBar) -->
+<!-- Active State: 'Matriks' mapped to destination index 2 -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-gutter py-space-sm h-[68px] max-w-[640px] mx-auto bg-surface-container-lowest rounded-t-lg shadow-[0_-4px_24px_rgba(53,80,112,0.06)] border-t border-surface-container-high/60">
+<!-- Tab 1: Hari Ini -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="today">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hari Ini</span>
+</button>
+<!-- Tab 2: Catatan -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="edit_note">edit_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Catatan</span>
+</button>
+<!-- Tab 3: Matriks (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-tertiary-fixed text-on-tertiary-fixed rounded-full px-4 py-1.5 transition-all duration-200 shadow-sm active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">Matriks</span>
+</button>
+<!-- Tab 4: Sheet -->
+<button class="flex flex-col items-center justify-center text-secondary px-2 py-1.5 hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="table_chart">table_chart</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sheet</span>
+</button>
+</nav>
+</div>
+<script>
+    // Lightweight tactile click feedback for spreadsheet matrix rows
+    document.querySelectorAll('tbody tr').forEach(row => {
+      row.addEventListener('click', () => {
+        row.classList.add('bg-surface-container');
+        setTimeout(() => {
+          row.classList.remove('bg-surface-container');
+        }, 180);
+      });
+    });
+  </script>
+</body></html>
