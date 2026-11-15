@@ -52,3 +52,4 @@ test/SQA_TESTING_DOCUMENTATION.md
 test/whitebox_test.dart
 test/widget_test.dart
 test/stress_network_test.dart
+test/screenshot_test.dart

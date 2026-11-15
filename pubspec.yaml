@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/public/
     - assets/public/lumi_app_icon.jpg
+    - assets/google_fonts/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
