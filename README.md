@@ -24,7 +24,13 @@ Tonton demonstrasi penggunaan atau coba langsung aplikasi **Lumi — Ruang Teduh
 
 - **🌐 Live Web App (GitHub Pages):** [https://zulfarida0107-crypto.github.io/Lumi-app/](https://zulfarida0107-crypto.github.io/Lumi-app/)
 - **📦 GitHub Release (`v1.0.0`):** [https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0](https://github.com/zulfarida0107-crypto/Lumi-app/releases/tag/v1.0.0)
-- **🎥 Link Demo Video:** [Tonton Video Demo Lumi (YouTube / Google Drive)](#) *(Ganti `#` dengan tautan video demo Anda)*
+- **🎥 Demo Video File (Lokal / Repo):** [assets/UI/lumi_demo_video.mp4](assets/UI/lumi_demo_video.mp4)
+
+<p align="center">
+  <video src="assets/UI/lumi_demo_video.mp4" controls="controls" width="480" style="max-width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+    Browser Anda tidak mendukung tag video. Silakan unduh atau tonton langsung di <a href="assets/UI/lumi_demo_video.mp4">assets/UI/lumi_demo_video.mp4</a>.
+  </video>
+</p>
 
 ---
 
